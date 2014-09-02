@@ -1,7 +1,9 @@
 <div id="debate_container">
+    <%= link_to "Recent", debates_path, { class: 'btn' } %>
+    <%= link_to "Popular", popular_debates_path, { class: 'btn' } %>
+    <%= link_to "Agree", agree_debates_path , { class: 'btn' } %>
+    <%= link_to "Disagree", disagree_debates_path , { class: 'btn' } %>
 
-  <div id="recent_list">
-    <center><h1>Recent Debates</h1></center>
     <% @recent_debates.each do |debate| %>
       <%= link_to debate do %>
         <div class="single_debate">
@@ -18,27 +20,5 @@
         </div>
       <% end %>
     <% end %>
-  </div>
-
-  <div id="popular_list">
-    <center><h1>Popular Debates</h1></center>
-    <% @popular_debates.each do |debate| %>
-      <%= link_to debate do %>
-        <div class="single_debate">
-          <h3><%= debate.title %></h3>
-          <p class="truncate"><%= debate.body %></p>
-          <br>
-
-          <p>
-            <b><%= debate.topic.name %></b> |
-            <%= debate.votes_for %> For |
-            <%= debate.votes_against %> Against |
-            <%= debate.comments.length %> Comments
-          </p>
-          <br>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
 
 </div>
